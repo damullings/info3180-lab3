@@ -10,7 +10,7 @@ from flask import render_template, request, redirect, url_for, flash
 from .forms import ContactForm
 from app import mail
 from flask_mail import Message, Mail
-from .config import Config
+
 
 ###
 # Routing for your application.
@@ -31,8 +31,8 @@ def about():
 def contact():
     """Render the website's contact form page."""
 
-    app.config.from_object(Config)
-    mail = Mail(app)
+    #app.config.from_object(Config)
+    #mail = Mail(app)
     form = ContactForm(request.form)
     if request.method == "POST" and form.validate_on_submit():
         
